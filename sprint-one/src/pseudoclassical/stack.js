@@ -1,5 +1,5 @@
 var Stack = function() {
-  
+
   this.storage = {}
   this.key = 0;
 
@@ -8,14 +8,14 @@ var Stack = function() {
 Stack.prototype.push = function(value) {
 	this.storage[this.key] = value;
 	this.key++;
-}
+};
 
 Stack.prototype.pop = function() {
 	this.key--;
 	var popped = this.storage[this.key];
 	delete this.storage[this.key];
 	return popped;
-}
+};
 
 Stack.prototype.size = function() {
 	if (this.key <= 0) {
@@ -23,7 +23,6 @@ Stack.prototype.size = function() {
 	}
 
 	return this.key;
-}
+};
 
-var someInstance = new Stack;
-
+var stack = new Stack;
