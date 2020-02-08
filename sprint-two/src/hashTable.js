@@ -54,6 +54,9 @@ var myTable = new HashTable();
 console.log(myTable._storage);
 /*
  * Complexity: What is the time complexity of the above functions?
+insert --> O(n)
+retrieve --> O(n)
+remove --> O(n)
  */
 
 
