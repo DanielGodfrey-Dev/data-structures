@@ -52,4 +52,8 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+  it('should have head and tail both point to the same node when there is only one node in the linkedList', function() {
+    linkedList.addToTail(4);
+    expect(linkedList.head).to.eql(linkedList.tail);
+  });
 });

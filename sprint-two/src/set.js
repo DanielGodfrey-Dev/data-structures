@@ -8,9 +8,16 @@ var Set = function() {
 var setPrototype = {};
 
 setPrototype.add = function(item) {
-  
-  this._storage[this._key] = item;
-  this._key++;
+  var check = false;
+  for (var key in this._storage) {
+    if (this._storage[key] === item) {
+      var check = true;
+    }
+  }
+  if (check === false) {
+    this._storage[this._key] = item;
+    this._key++;
+  }
 };
 
 setPrototype.contains = function(item) {

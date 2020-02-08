@@ -8,7 +8,9 @@ var Graph = function() {
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
-  this.nodes.push(node);
+  if (!_.contains(this.nodes, node)) {
+    this.nodes.push(node);
+  }
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
@@ -73,9 +75,7 @@ Graph.prototype.addEdge = function(fromNode, toNode) {
 Graph.prototype.removeEdge = function(fromNode, toNode) {
 
   //if edge element in storage contains both fromNode and toNode values, delete it from edge storage
-  //if ()
   this.edges.splice(this.edges.indexOf(fromNode.toString() + toNode.toString()), 1);
-//  this.edges.splice(this.edges.indexOf(toNode.toString() + fromNode.toString()), 1);
 
 
 };

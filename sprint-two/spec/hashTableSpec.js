@@ -47,6 +47,14 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  it('should return the total number of values contained in the hashTable', function() {
+    hashTable.insert('Bob', 'Loblaw');
+    hashTable.insert('Joe', 'Barker');
+    hashTable.insert('Bill', 'Fish');
+    hashTable.insert('Ricky', 'Bobby');
+    expect(hashTable.size()).to.equal(4);
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {

@@ -49,6 +49,18 @@ HashTable.prototype.remove = function(k) {
   }
 };
 
+HashTable.prototype.size = function() {
+  var count = 0;
+  this._storage.each(function(item) {
+    if (Array.isArray(item)) {
+      for (var i = 0; i < item.length; i++) {
+        count++;
+      }
+    }
+  });
+  return count;
+};
+
 // var myTable = new HashTable();
 // console.log(myTable._storage);
 /*
