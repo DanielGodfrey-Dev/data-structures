@@ -32,6 +32,15 @@ Graph.prototype.removeNode = function(node) {
     this.nodes.splice(this.nodes.indexOf(node), 1);
   }
   //remove edge connections!!
+  var arrOfItemsToRemove = [];
+  this.edges.forEach(function(item) {
+    if (item.indexOf(node !== -1)) {
+      arrOfItemsToRemove.push(item);
+    }
+  });
+  for (var i = 0; i < arrOfItemsToRemove.length; i++) {
+    this.edges.splice(this.edges.indexOf(arrOfItemsToRemove[i]), 1);
+  }
 };
 
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
@@ -66,19 +75,30 @@ Graph.prototype.removeEdge = function(fromNode, toNode) {
   //if edge element in storage contains both fromNode and toNode values, delete it from edge storage
   //if ()
   this.edges.splice(this.edges.indexOf(fromNode.toString() + toNode.toString()), 1);
-  this.edges.splice(this.edges.indexOf(toNode.toString() + fromNode.toString()), 1);
+//  this.edges.splice(this.edges.indexOf(toNode.toString() + fromNode.toString()), 1);
 
 
 };
 
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb) {
+  //
+  for (var i = 0; i < this.nodes.length; i++) {
+    cb(this.nodes[i]);
+  }
 };
 
 var myGraph = new Graph;
 
 /*
  * Complexity: What is the time complexity of the above functions?
+// add --> O(1)
+// contains --> O(n)
+// remove --> O(n)
+// hasEdge --> O(n)
+// addEdge --> O(1)
+// removeEdge --> O(1)
+// forEachNode --> O(n) 
  */
 
 
