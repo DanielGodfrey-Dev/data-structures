@@ -27,7 +27,6 @@ HashTable.prototype.insert = function(k, v) {
     }
     this._storage.set(index, bucket);
   } 
-  console.log(this._storage.get(index));
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -50,8 +49,8 @@ HashTable.prototype.remove = function(k) {
   }
 };
 
-var myTable = new HashTable();
-console.log(myTable._storage);
+// var myTable = new HashTable();
+// console.log(myTable._storage);
 /*
  * Complexity: What is the time complexity of the above functions?
 insert --> O(n)
