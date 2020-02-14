@@ -41,4 +41,9 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should return true for a non-numeric value that the tree contains', function() {
+    tree.addChild('ciao');
+    expect(tree.contains('ciao')).to.equal(true);
+  });
+
 });
