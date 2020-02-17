@@ -1,30 +1,32 @@
 var Stack = function() {
-  
-  var someInstance = {};
+  //generate object
+  var stack = {};
 
-  // Use an object with numeric keys to store values
-  var key = 0;
-  var storage = {};
+  // assign properties
+  stack.key = 0;
+  stack.storage = {};
 
-  // Implement the methods below
-  someInstance.push = function(value) {
-    storage[key] = value;
-    key++;
+  // define methods
+  stack.push = function(value) {
+    stack.storage[stack.key] = value;
+    stack.key++;
   };
 
-  someInstance.pop = function() {
-    key--;
-    var popped = storage[key];
-    delete storage[key];
+  stack.pop = function() {
+    stack.key--;
+    var popped = stack.storage[stack.key];
+    delete stack.storage[stack.key];
     return popped;
   };
 
-  someInstance.size = function() {
-    if (key <= 0) {
+  stack.size = function() {
+    if (stack.key <= 0) {
       return 0;
     }
-      return key;
+    return stack.key;
   };
 
-  return someInstance;
+  return stack;
 };
+
+//instantiation pattern: var newStack = Stack();

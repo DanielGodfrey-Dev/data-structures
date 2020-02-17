@@ -1,38 +1,38 @@
 class Queue {
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+  
+  //generate object and assign properties
   constructor() {
 
-  this.storage = {};
-  this.key = 0;
-  this.deq = 0;
-  this.objectSize = 0;
+    this.storage = {};
+    this.key = 0;
+    this.deq = 0;
+    this.objectSize = 0;
 
   }
 
+  //define methods
   enqueue(value) {
-  	var string = value.toString;
-	this.storage[this.key] = value;
-	this.key++;
-	this.objectSize++;
+    var string = value.toString;
+    this.storage[this.key] = value;
+    this.key++;
+    this.objectSize++;
   }
 
   dequeue() {
-	var deqqed = this.storage[this.deq];
-	delete this.storage[this.deq];
-	this.deq++;
-	this.objectSize--;
-	return deqqed;
+    var deqqed = this.storage[this.deq];
+    delete this.storage[this.deq];
+    this.deq++;
+    this.objectSize--;
+    return deqqed;
   }
 
   size() {
-  	if (this.objectSize <= 0) {
-  		return 0;
-  	}
-
-  	return this.objectSize;
+    if (this.objectSize <= 0) {
+      return 0;
+    }
+    return this.objectSize;
   }
 
-};
+}
 
-var someInstance = new Queue;
+//instantiation pattern: var newQueue = new Queue();

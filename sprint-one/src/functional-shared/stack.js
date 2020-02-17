@@ -1,16 +1,23 @@
 var Stack = function() {
-  	
-  	var someInstance = {};
+  //generate object
+  var stack = {};
 
-  	someInstance.key = 0;
-  	someInstance.storage = {};
+  //assign properties
+  stack.key = 0;
+  stack.storage = {};
 
-  	_.extend(someInstance, stackMethods);
+  //define or borrow methods
+  //alternatively without _.extend:
+  //stack.push = stackMethods.push;
+  //etc... 
+  _.extend(stack, stackMethods);
 
-  	return someInstance;
+  return stack;
 
 };
 
+//add methods to delegated fallback object
+//defined shared methods (below is es6 style)
 var stackMethods = {
 
   push: function(value) {
@@ -25,13 +32,15 @@ var stackMethods = {
     return popped;
   },
 
-  	size: function() {
+  size: function() {
     if (this.key <= 0) {
       return 0;
     }
-      return this.key;
+    return this.key;
   }
 
 };
+
+//instantiation pattern: var newStack = Stack();
 
 

@@ -1,40 +1,48 @@
 var Queue = function() {
-  
-  var someInstance = Object.create(queueMethods);
-  someInstance.storage = {};
-  someInstance.key = 0;
-  someInstance.deq = 0;
-  someInstance.objectSize = 0;
+  //generate object
+  var queue = Object.create(queueMethods);
 
-  return someInstance;
+  //assign properties
+  queue.storage = {};
+  queue.key = 0;
+  queue.deq = 0;
+  queue.objectSize = 0;
+
+  return queue;
 
 };
 
+//add methods to delegated fallback object
+//defined shared methods (below is es6 style)
 var queueMethods = {
 
-	enqueue: function(value) {
-		var string = value.toString;
-		this.storage[this.key] = value;
-		this.key++;
-		this.objectSize++;
-	},
+  enqueue: function(value) {
+    var string = value.toString();
+    this.storage[this.key] = string;
+    this.key++;
+    this.objectSize++;
+  },
 
-	dequeue: function() {
-		var deqqed = this.storage[this.deq];
-		delete this.storage[this.deq];
-		this.deq++;
-		this.objectSize--;
-		return deqqed;
-	},
+  dequeue: function() {
+    var deqqed = this.storage[this.deq];
+    delete this.storage[this.deq];
+    this.deq++;
+    this.objectSize--;
+    return deqqed;
+  },
 
-	size: function() {
-		if (this.objectSize <= 0) {
-			return 0;
-		}
+  size: function() {
+    if (this.objectSize <= 0) {
+      return 0;
+    }
 
-		return this.objectSize;
-	}
+    return this.objectSize;
+  }
 
 };
+
+//instantiation pattern: var newqueue = Queue();
+
+//instantiation pattern: var newqueue = Queue();
 
 
