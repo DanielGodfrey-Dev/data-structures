@@ -43,6 +43,4 @@ var queueMethods = {
 
 //instantiation pattern: var newqueue = Queue();
 
-//instantiation pattern: var newqueue = Queue();
-
 
